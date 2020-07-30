@@ -1,0 +1,154 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PurplecometWebpage.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Purplecomet</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <link rel="stylesheet" type="text/css" runat="server" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" runat="server" href="~/Content/site.css" />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <%--Navbar DEFAULT--%>
+        <asp:PlaceHolder ID="navbarDefault" runat="server">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="~/" runat="server">Purplecomet</a>
+                <div class="collapse navbar-collapse" id="navbarColor01">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/Contact">Contacto</a>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item navbar-right" style="padding-right: 10px;">
+                            <a class="nav-link" runat="server" href="~/About">Acerca de</a>
+                        </li>
+                        <li><a class="btn btn-secondary my-2 my-sm-0" href="~/Login" runat="server">Iniciar sesion </a> </li>
+                    </ul>
+                </div>
+            </nav>
+        </asp:PlaceHolder>
+
+        <%--Navbar MANAGER--%>
+        <asp:PlaceHolder ID="navbarManager" runat="server">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="~/" runat="server">Purplecomet: Administracion</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/UserList">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/ScheduleList">Tablas de horarios</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item navbar-right">
+                            <a class="nav-link" runat="server" href="~/About">Acerca de</a>
+                        </li>
+                        <li><a href="~/Logout" class="btn btn-secondary my-2 my-sm-0" runat="server">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </asp:PlaceHolder>
+
+        <%--Navbar ADMIN--%>
+        <asp:PlaceHolder ID="navbarAdmin" runat="server">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+                <a class="navbar-brand" href="~/" runat="server">Purplecomet: Administracion</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/MessageList">Mensajes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/UserList">Usuarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/InstitutionList">Instituciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="~/ScheduleList">Tablas de horarios</a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">     
+                        <li class="nav-item navbar-right">
+                            <a class="nav-link" runat="server" href="~/About">Acerca de</a>
+                        </li>
+                        &nbsp;
+                        <li class="nav-item navbar-right">
+                            <a href="~/Task?action=updatenewreports" class="btn btn-secondary my-2 my-sm-0" runat="server">UNR</a>
+                        </li>
+                        &nbsp
+                        <li class="nav-item navbar-right">
+                            <a href="~/Task?action=updateallreports" class="btn btn-secondary my-2 my-sm-0" runat="server">UAR</a>
+                        </li>
+                        &nbsp 
+                        <li><a href="~/Logout" class="btn btn-secondary my-2 my-sm-0" runat="server">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </asp:PlaceHolder>
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+
+            <footer>
+                <asp:Timer ID="ClockTimer" OnTick="ClockTimer_Tick" runat="server" Interval="1000"></asp:Timer>
+
+                <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="ClockTimer" EventName="Tick"/>
+                    </Triggers>
+                    <ContentTemplate>
+                        <asp:Label ID="lblHora" runat="server" text="Hora sistema: "></asp:Label>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+    </form>
+</body>
+</html>
